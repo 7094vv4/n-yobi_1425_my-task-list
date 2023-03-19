@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="task-list.css">
+  <title>やったことリスト</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>期末面談用やったことリスト</h1>
+    <div class="input-wrapper">
+      <p>実施月、進捗、タイトル、タスク概要を入力してください</p>
+      <div class="input-row c-h">
+        <input type="month" name="date" id="input-month">
+        <select name="status" id="input-status">
+          <option value="0">済</option>
+          <option value="1">進行中</option>
+          <option value="2">未着手</option>
+        </select>
+        <button id="input-submit" class="button-submit">登録</button>
+      </div>
+      <div class="input-row">
+        <input type="text" name="title" id="input-title" size="32" placeholder="タイトル">
+      </div>
+      <div class="input-row">
+        <textarea name="summary" id="input-summary" cols="64" rows="8" placeholder="タスクの概要"></textarea>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>実施月</th>
+          <th>進捗</th>
+          <th class="th-title">タイトル</th>
+          <th class="th-summary">タスク概要</th>
+          <th>削除</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
+  <script src="task-list.js"></script>
+</body>
+
+</html>

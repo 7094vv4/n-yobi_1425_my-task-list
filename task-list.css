@@ -1,0 +1,140 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box
+}
+
+* {
+  margin: 0
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word
+}
+
+#root,
+#__next {
+  isolation: isolate
+}
+
+/* ---------- */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #ddeedd;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.input-wrapper,
+table {
+  margin-top: 0.75rem;
+}
+
+.input-row {
+  margin-top: 0.5rem;
+}
+
+.c-h {
+  display: flex;
+  align-items: center;
+}
+
+.c-h>select,
+.c-h>button {
+  margin-left: 0.25rem;
+}
+
+input,
+select,
+button,
+textarea {
+  border: 0.125rem solid #888888;
+}
+
+input,
+select,
+button {
+  height: 2rem;
+}
+
+input,
+select,
+textarea {
+  padding: 0.25rem;
+}
+
+button {
+  font-weight: bold;
+  color: white;
+  border-radius: 0.2rem;
+}
+
+.button-submit {
+  background-color: #4444ff;
+  padding: 0 0.75rem;
+}
+
+.button-delete {
+  background-color: #444444;
+  padding: 0 0.25rem;
+}
+
+th {
+  background-color: #227777;
+  color: white;
+  padding: 0.125rem 0.25rem;
+}
+
+.th-title {
+  width: 16rem;
+}
+
+.th-summary {
+  width: 24rem;
+}
