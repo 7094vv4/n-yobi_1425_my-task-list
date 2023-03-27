@@ -1,15 +1,15 @@
 'use strict';
 
-const taskList = [
-  {
-    month: '2021-07',
-    status: '0',
-    title: '【例】A社経営統合プロジェクト',
-    summary: '経営統合に伴う業務プロセス統合プロジェクト。\nプロジェクトリーダー(メンバー4人)として担当。\nQDC目標いずれも達成。CS評価で5をいただいた。'
-  }
-];
+let taskList = [];
 
-const statusValue = [
+const taskSample = {
+  month: '2021-07',
+  status: '0',
+  title: '【例】A社経営統合プロジェクト',
+  summary: '経営統合に伴う業務プロセス統合プロジェクト。\nプロジェクトリーダー(メンバー4人)として担当。\nQDC目標いずれも達成。CS評価で5をいただいた。'
+};
+
+const statusValues = [
   '済',
   '進行中',
   '未着手'
@@ -34,6 +34,18 @@ const escapeHtml = (string) => {
   });
 };
 
+const localStorageKey = 'taskList';
+
+const setLocalStorage = () => {
+  const taskListJSON = JSON.stringify(taskList);
+  localStorage.setItem(localStorageKey, taskListJSON);
+};
+
+const getLocalStorage = () => {
+  const taskListJSON = localStorage.getItem(localStorageKey);
+  taskList = JSON.parse(taskListJSON) ?? [];
+};
+
 const refreshTable = () => {
   const tbody = document.getElementById('table-body');
 
@@ -51,7 +63,7 @@ const refreshTable = () => {
           row.insertCell(0).appendChild(document.createTextNode(task[prop]));
           break;
         case 'status':
-          const status = statusValue[parseInt(task[prop])];
+          const status = statusValues[parseInt(task[prop])];
           row.insertCell(1).appendChild(document.createTextNode(status));
           break;
         case 'title':
@@ -76,6 +88,7 @@ const deleteTask = (index) => {
   taskList.splice(index, 1);
 
   refreshTable();
+  setLocalStorage();
 };
 
 const clearInput = () => {
@@ -123,8 +136,13 @@ submitButton.onclick = () => {
   clearInput();
 
   refreshTable();
+  setLocalStorage();
 };
 
 (() => {
+  getLocalStorage();
+  if (taskList.length === 0) {
+    taskList.push(taskSample);
+  }
   refreshTable();
 })();
